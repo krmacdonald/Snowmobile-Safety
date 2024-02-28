@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Snowmobile Choice.unity
+    guid: 82a521a8f1d109d458005cb191ed5c14
+  - enabled: 1
+    path: Assets/Scenes/Snowmobile Moving Box Testing.unity
+    guid: 95ef19c133f82854f84667eea55f894a
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
