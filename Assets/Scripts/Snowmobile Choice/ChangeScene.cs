@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
-public class ChangeScene : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string LevelChange;
+   
+    public void LoadScene()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
