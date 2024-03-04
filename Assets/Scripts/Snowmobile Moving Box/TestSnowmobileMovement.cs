@@ -6,7 +6,7 @@ public class TestSnowmobileMovement : MonoBehaviour
 {
     /*
      * @author kylem
-     * @date 2/28/2024
+     * @date 3/4/2024
      * Description: This script acts as the main controller for the snowmobile. Uses W as the gas, S for the brake, and A/D to control turn direction
      * Prerequisites: A 3D gameObject with a rigidbody, "driving" on a material with the snowy physics material applied
      */
@@ -17,13 +17,14 @@ public class TestSnowmobileMovement : MonoBehaviour
      * No reverse on a typical snowmobile
      * Movement is controlled by a rb with pushing it forward, be conscious of gravity
      * 
-     * Goals for next ver: 
+     * Goals for next ver: Mess around with the values and find good numbers 
      */
 
     //This gameobject's rigidbody
     private Rigidbody snowmobileRB;
 
     //Acceleration vars
+    [Header("Acceleration Variables")]
     [SerializeField]
     private float acceleration;
     [SerializeField]
@@ -32,16 +33,25 @@ public class TestSnowmobileMovement : MonoBehaviour
     private float accelDecrease; //interval the acceleration decreases
     [SerializeField]
     private float accelCap;
-
-    //Speed vars
+    [SerializeField]
+    private float accelModifier; //1-inf changes the multiplier on how fast the speed increases
+    
+    //Speed values
+    [Header("Speed Variables")]
     public float speed; //public to send this value to the speed display
     private float speedCap;
     [SerializeField]
     private float speedModifier; // 0-1, divides the speed to match the map
+    [SerializeField]
+    private float speedDecay; //The rate of speed decrease when not holding forward
 
     //Brake effectiveness
+    [Header("Brake Variables")]
     [SerializeField]
     private float brakeEffectiveness;
+    [SerializeField]
+    private float brakeForce; //Force being applied to RB as it heads backwards
+    private Vector3 brakeDir; //Holds the data for the direction the RB would push towards on brake
 
     //Force being added to the rb
     private Vector3 movement;
@@ -60,7 +70,11 @@ public class TestSnowmobileMovement : MonoBehaviour
         //Increase acceleration when drive axis is increased, caps it out if it's too high
         if(Input.GetAxis("Drive") > 0f)
         {
-            if (acceleration <= accelCap)
+            if (acceleration < 1f)
+            {
+                acceleration = 1f;
+            }
+            else if(acceleration <= accelCap)
             {
                 acceleration += accelIncrease * Time.deltaTime;
             }
@@ -76,6 +90,8 @@ public class TestSnowmobileMovement : MonoBehaviour
             }
             if(speed > 0f)
             {
+                brakeDir = (transform.forward * -1 * brakeForce);
+                snowmobileRB.AddForce(brakeDir);
                 speed -= brakeEffectiveness * Time.deltaTime;
             }
         }
@@ -83,7 +99,7 @@ public class TestSnowmobileMovement : MonoBehaviour
         //Slows the snowmobile speed down when the player is not accelerating
         if (speed > 0f)
         {
-            speed -= 1f * Time.deltaTime;
+            speed -= speedDecay * Time.deltaTime;
         }
         else if (speed < 0f)
         {
@@ -96,7 +112,7 @@ public class TestSnowmobileMovement : MonoBehaviour
             speed = speedCap;
         }
 
-        speed += acceleration;
+        speed += acceleration * Time.deltaTime * accelModifier;
 
         //Moves the snowmobile forward based on the current speed
         movement = (transform.forward * (speed)) / speedModifier;

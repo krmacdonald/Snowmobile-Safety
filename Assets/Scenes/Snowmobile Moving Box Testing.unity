@@ -471,9 +471,12 @@ MonoBehaviour:
   accelIncrease: 0.015
   accelDecrease: 0
   accelCap: 4
+  accelModifier: 5
   speed: 0
-  speedModifier: 0.4
-  brakeEffectiveness: 3
+  speedModifier: 8
+  speedDecay: 0
+  brakeEffectiveness: 10
+  brakeForce: 3
 --- !u!1 &978537920
 GameObject:
   m_ObjectHideFlags: 0
