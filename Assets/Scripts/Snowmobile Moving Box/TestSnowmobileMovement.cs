@@ -6,7 +6,7 @@ public class TestSnowmobileMovement : MonoBehaviour
 {
     /*
      * @author kylem
-     * @date 3/4/2024
+     * @date 3/5/2024
      * Description: This script acts as the main controller for the snowmobile. Uses W as the gas, S for the brake, and A/D to control turn direction
      * Prerequisites: A 3D gameObject with a rigidbody, "driving" on a material with the snowy physics material applied
      */
@@ -17,7 +17,7 @@ public class TestSnowmobileMovement : MonoBehaviour
      * No reverse on a typical snowmobile
      * Movement is controlled by a rb with pushing it forward, be conscious of gravity
      * 
-     * Goals for next ver: Mess around with the values and find good numbers 
+     * Goals for next ver: Make the brake not as instant when the speed value is lower. 
      */
 
     //This gameobject's rigidbody
@@ -28,9 +28,9 @@ public class TestSnowmobileMovement : MonoBehaviour
     [SerializeField]
     private float acceleration;
     [SerializeField]
-    private float accelIncrease; //interval the acceleration increases
+    private float accelIncrease; //interval the acceleration increases when holding w
     [SerializeField]
-    private float accelDecrease; //interval the acceleration decreases
+    private float accelDecrease; //interval the acceleration decreases when braking
     [SerializeField]
     private float accelCap;
     [SerializeField]
@@ -53,21 +53,36 @@ public class TestSnowmobileMovement : MonoBehaviour
     private float brakeForce; //Force being applied to RB as it heads backwards
     private Vector3 brakeDir; //Holds the data for the direction the RB would push towards on brake
 
+    //Turning Variables
+    [Header("Turning Variables")]
+    [SerializeField]
+    private float turnEffectiveness;
+
     //Force being added to the rb
     private Vector3 movement;
 
+    //Vector3 for the starting position of the snowmobile, reset on R, testing purposes only.
+    private Vector3 startingPos;
 
 
     void Start()
     {
         speedCap = 95f; //speed will be 1:1 in comparison to MPH
         snowmobileRB = gameObject.GetComponent<Rigidbody>(); //Gets the rb
+        startingPos = transform.position;
     }
 
     void Update()
     {
+        //restarts the snowmobile and its position if you need to reset
+        if (Input.GetKeyDown("r"))
+        {
+            transform.position = startingPos;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
-        //Increase acceleration when drive axis is increased, caps it out if it's too high
+
+        //Increase acceleration when drive axis is increased, caps it out if it's too high. W/S and arrow keys used for forward + braking movements, variable desc. above
         if(Input.GetAxis("Drive") > 0f)
         {
             if (acceleration < 1f)
@@ -88,13 +103,28 @@ public class TestSnowmobileMovement : MonoBehaviour
             {
                 acceleration = 0f;
             }
-            if(speed > 0f)
+            if(speed > 5f)
             {
                 brakeDir = (transform.forward * -1 * brakeForce);
                 snowmobileRB.AddForce(brakeDir);
                 speed -= brakeEffectiveness * Time.deltaTime;
             }
+            else if(speed <= 5f && speed > 0f)
+            {
+                snowmobileRB.velocity = new Vector2(0f, 0f);
+                speed -= brakeEffectiveness * Time.deltaTime;
+            }
         }
+
+        //simple turn script, improve upon later
+        if (Input.GetAxisRaw("Turn") > 0f)
+        {
+            transform.rotation *= Quaternion.AngleAxis(turnEffectiveness * Time.deltaTime, Vector3.up);
+        }else if(Input.GetAxisRaw("Turn") < 0f)
+        {
+            transform.rotation *= Quaternion.AngleAxis(turnEffectiveness * Time.deltaTime, Vector3.down);
+        }
+
 
         //Slows the snowmobile speed down when the player is not accelerating
         if (speed > 0f)
@@ -116,6 +146,6 @@ public class TestSnowmobileMovement : MonoBehaviour
 
         //Moves the snowmobile forward based on the current speed
         movement = (transform.forward * (speed)) / speedModifier;
-        snowmobileRB.AddForce(movement);
+        snowmobileRB.velocity = movement;
     }
 }
