@@ -8,7 +8,7 @@ using TMPro;
  * @author Kyle Macdonald
  * @date 3/20/24
  * prerequisite: Connected to the SnowmobileCrash script, UI element with timeline for animating it to come in on screen
- * output: a box 
+ * output: a box that displays text based on what went wrong
  */
 
 public class CrashPopup : MonoBehaviour
