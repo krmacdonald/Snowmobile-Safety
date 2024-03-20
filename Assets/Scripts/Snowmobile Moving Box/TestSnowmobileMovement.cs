@@ -70,6 +70,7 @@ public class TestSnowmobileMovement : MonoBehaviour
         speedCap = 95f; //speed will be 1:1 in comparison to MPH
         snowmobileRB = gameObject.GetComponent<Rigidbody>(); //Gets the rb
         startingPos = transform.position;
+        snowmobileRB.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
@@ -78,7 +79,8 @@ public class TestSnowmobileMovement : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             transform.position = startingPos;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0); //resets rotation
+            speed = 0; //resets mph speed
         }
 
 
