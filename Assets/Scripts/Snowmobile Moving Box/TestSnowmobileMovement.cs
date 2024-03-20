@@ -145,7 +145,7 @@ public class TestSnowmobileMovement : MonoBehaviour
         speed += acceleration * Time.deltaTime * accelModifier;
 
         //Moves the snowmobile forward based on the current speed
-        movement = (transform.forward * (speed)) / speedModifier;
+        movement = ((transform.forward * (speed)) / speedModifier);
         snowmobileRB.velocity = movement;
     }
 }
