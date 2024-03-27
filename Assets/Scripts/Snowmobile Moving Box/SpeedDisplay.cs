@@ -33,6 +33,7 @@ public class SpeedDisplay : MonoBehaviour
 
     //Snowmobile script we'll get the speed from
     private TestSnowmobileMovement snowmobileScript;
+    [SerializeField]
     private GameObject thisSnowmobile;
 
     //Keeps track of the speed and converts to string
@@ -41,7 +42,7 @@ public class SpeedDisplay : MonoBehaviour
     void Start()
     {
         //Gets the snowmobile in the scene and assigns its information to the variables
-        thisSnowmobile = GameObject.Find("Snowmobile");
+        //thisSnowmobile = GameObject.Find("Snowmobile");
         snowmobileScript = thisSnowmobile.GetComponent<TestSnowmobileMovement>();
     }
 

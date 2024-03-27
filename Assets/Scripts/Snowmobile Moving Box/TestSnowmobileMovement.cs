@@ -117,6 +117,10 @@ public class TestSnowmobileMovement : MonoBehaviour
                 speed -= brakeEffectiveness * Time.deltaTime;
             }
         }
+        else
+        {
+            acceleration = 0.1f; //sets accel to near zero if not hitting button
+        }
 
         //simple turn script, improve upon later
         if (Input.GetAxisRaw("Turn") > 0f)
