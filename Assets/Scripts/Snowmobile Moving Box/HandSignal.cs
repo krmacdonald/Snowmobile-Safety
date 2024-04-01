@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /*
  * @author Kyle Macdonald
- * @date 3/27/2024
+ * @date 4/1/2024
  * Prerequisite: Array assigned to images of hand movements, and an image UI component on screen
  * Output: Hand signals that change based on 1-5 being pressed
  */
@@ -20,6 +21,8 @@ public class HandSignal : MonoBehaviour
     private float displayDuration; //Amount of time the image is displayed
     [SerializeField]
     private float delayBetween; //Delay between hand signals
+    [SerializeField]
+    private TMP_Text textbox;
     private float timeCounter = 99; //Variables tracks time passed
     private string currentState; //Used in other scripts to detect if player is doing the correct hand signal
 
@@ -65,6 +68,8 @@ public class HandSignal : MonoBehaviour
         if (timeCounter < displayDuration)
         {
             hudImage.gameObject.SetActive(true);
+            textbox.gameObject.SetActive(true);
+            textbox.text = currentState;
             switch (currentState)
             {
                 case "Right Turn":
@@ -91,7 +96,9 @@ public class HandSignal : MonoBehaviour
         {
             //Deactivates the image display and sets the current image to nothing while the image isn't displayed
             hudImage.gameObject.SetActive(false);
+            textbox.gameObject.SetActive(false);
             hudImage.sprite = null;
+            textbox.text = null;
         }
     }
 }
