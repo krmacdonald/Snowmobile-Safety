@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Crashable
   - Offroad Trigger
+  - AI Rider
   layers:
   - Default
   - TransparentFX

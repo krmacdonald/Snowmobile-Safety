@@ -24,4 +24,12 @@ public class ToClose : MonoBehaviour
             Alert.SetActive(false);
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Alert.SetActive(false);
+        }
+    }
 }
