@@ -775,16 +775,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 0
-  accelIncrease: 0.015
+  accelIncrease: 1.4
   accelDecrease: 0
   accelCap: 4
-  accelModifier: 5
+  accelModifier: 7
   speed: 0
   speedModifier: 3
-  speedDecay: 0
-  brakeEffectiveness: 10
+  speedDecay: 9
+  brakeEffectiveness: 20
   brakeForce: 1
-  turnEffectiveness: 15
+  turnEffectiveness: 25
 --- !u!1 &7948376998520752441
 GameObject:
   m_ObjectHideFlags: 0

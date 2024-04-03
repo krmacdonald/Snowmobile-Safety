@@ -3130,9 +3130,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3722878175591023395, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
+      propertyPath: speedDecay
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722878175591023395, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
+      propertyPath: accelIncrease
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722878175591023395, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
+      propertyPath: accelModifier
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722878175591023395, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
+      propertyPath: turnEffectiveness
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7948376998520752441, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
       propertyPath: m_Name
       value: Snowmobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142764593242952842, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
