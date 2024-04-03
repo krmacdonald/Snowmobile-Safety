@@ -46,6 +46,9 @@ public class CrashPopup : MonoBehaviour
             case "offTrack":
                 warningText.text = "Oh no! You went off the track for too long. Going off the trail can be dangerous, and can lead to you hurting yourself and others!\nPress R to restart";
                 break;
+            case "AI Rider Collision":
+                warningText.text = "Oh no! You crashed into another rider! Make sure to maintain a safe speed at all times and keep enought distance to allow yourself enough time to slow down or stop!\nPress R to restart";
+                break;
             default:
                 Debug.Log("this isn't supposed to be seen"); //Debug in case event isn't found
                 break;
