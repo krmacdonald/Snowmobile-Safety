@@ -70,7 +70,7 @@ public class TestSnowmobileMovement : MonoBehaviour
         speedCap = 45f; //speed will be 1:1 in comparison to MPH
         snowmobileRB = gameObject.GetComponent<Rigidbody>(); //Gets the rb
         startingPos = transform.position;
-        snowmobileRB.rotation = Quaternion.Euler(0, 0, 0);
+        //snowmobileRB.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
