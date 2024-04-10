@@ -1126,6 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248a9d93b021e1f429900907031386f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctClothes: 00000000
   clothesParent: {fileID: 150700833}
 --- !u!1 &290568649
 GameObject:
@@ -5202,8 +5203,8 @@ GameObject:
   - component: {fileID: 1394360358}
   - component: {fileID: 1394360361}
   - component: {fileID: 1394360360}
-  - component: {fileID: 1394360362}
   - component: {fileID: 1394360359}
+  - component: {fileID: 1394360362}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -5276,7 +5277,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1394360362}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_TargetAssemblyTypeName: NextSceneGearUp, Assembly-CSharp
         m_MethodName: SceneSwitch
         m_Mode: 1
         m_Arguments:
@@ -5334,10 +5335,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1394360357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c3778c24c86b29409c99d66b552abd6, type: 3}
+  m_Script: {fileID: 11500000, guid: ada3b3d6dc81f0a4cb8985c2eaae8c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: EnterTutorial
+  clothes: {fileID: 272643815}
 --- !u!1 &1405200720
 GameObject:
   m_ObjectHideFlags: 0

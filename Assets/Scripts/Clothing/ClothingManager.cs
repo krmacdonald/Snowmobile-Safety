@@ -12,7 +12,7 @@ using UnityEngine;
 public class ClothingManager : MonoBehaviour
 {
     //Booleans to be used for the transition to the next scene
-    private bool[] correctClothes = {false, false, false, false};
+    public bool[] correctClothes = {false, false, false, false};
     private string[] equippedClothes = new string[4];
     [SerializeField]
     private GameObject clothesParent;
@@ -80,13 +80,13 @@ public class ClothingManager : MonoBehaviour
         switch (clothingPiece)
         {
             case "Snow Boots":
-                manageClothingData(false, 3, clothingPiece);
+                manageClothingData(true, 3, clothingPiece);
                 break;
             case "Fluffy Boots":
                 manageClothingData(false, 3, clothingPiece);
                 break;
             case "Sneakers":
-                manageClothingData(true, 3, clothingPiece);
+                manageClothingData(false, 3, clothingPiece);
                 break;
             case "Flip Flops":
                 manageClothingData(false, 3, clothingPiece);
