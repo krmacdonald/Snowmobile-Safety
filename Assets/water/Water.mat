@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Water
   m_Shader: {fileID: 4800000, guid: d6604a750f0b3494faf8e2b67c8a344e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -54,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalTex1:
         m_Texture: {fileID: 2800000, guid: b9d69a18414696148aeb135894e96220, type: 3}
-        m_Scale: {x: 2, y: 3.35}
+        m_Scale: {x: 15, y: 10}
         m_Offset: {x: 0, y: 0}
     - _NormalTex2:
         m_Texture: {fileID: 2800000, guid: caabc6056009ad94abba85910fd47c11, type: 3}
@@ -76,16 +79,16 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.193
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.728
     - _Mode: 0
-    - _NormalStrength: 0.5
+    - _NormalStrength: 0.586
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Scale: 0.0198
     - _SmoothnessTextureChannel: 0
-    - _SoftFactor: 1
+    - _SoftFactor: 0.39
     - _SpecularHighlights: 1
     - _Speed: 0.01
     - _SrcBlend: 1
@@ -95,3 +98,4 @@ Material:
     - _Color: {r: 0.38113207, g: 0.86186343, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
