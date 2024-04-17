@@ -13,7 +13,7 @@ public class ClothingManager : MonoBehaviour
 {
     //Booleans to be used for the transition to the next scene
     public bool[] correctClothes = {false, false, false, false};
-    private string[] equippedClothes = new string[4];
+    public string[] equippedClothes = new string[4];
     [SerializeField]
     private GameObject clothesParent;
     
@@ -119,6 +119,7 @@ public class ClothingManager : MonoBehaviour
             if(equippedClothes[i] != null)
                 clothesParent.transform.Find(equippedClothes[i]).gameObject.SetActive(false);
         }
+        clothesParent.SetActive(true);
     }
 
     private void addClothes()
