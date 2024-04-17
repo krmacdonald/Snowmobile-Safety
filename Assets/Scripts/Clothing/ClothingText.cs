@@ -17,8 +17,11 @@ public class ClothingText : MonoBehaviour
     private string[] textToDisplay = new string[4];
     public string[,] textCollection = new string[4, 4];
     public TextAsset textFile;
+    public TMP_Text text;
+    public GameObject panel;
     void Start()
     {
+        panel.SetActive(false);
         StreamReader reader = new StreamReader("Assets/Text Data/Clothing.txt");
         string temp = "asdf";
         for(int i = 0; i < 16; i++)
@@ -36,13 +39,21 @@ public class ClothingText : MonoBehaviour
         {
             for (int j = 0; j < 4; j++)
             {
-                if(textCollection[i, j].StartsWith(currentClothes[i]))
+                if(clothes.equippedClothes[i] == "") 
+                {
+                    textToDisplay[i] = "Nothing equipped!";
+                }
+                else if(textCollection[i, j].StartsWith(clothes.equippedClothes[i]))
                 {
                     textToDisplay[i] = textCollection[i, j];
                 }
             }
         }
+    }
 
-        Debug.Log(textToDisplay[1]);
+    public void SetText()
+    {
+        panel.SetActive(true);
+        text.text = "Helmet\n" + textToDisplay[0] + "\nBody\n" + textToDisplay[1] + "\nGloves\n" + textToDisplay[2] + "\nBoots\n" + textToDisplay[3];
     }
 }
