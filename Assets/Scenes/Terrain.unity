@@ -2528,6 +2528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 416795817}
+  BarFill: {fileID: 468560590}
 --- !u!1 &906966368
 GameObject:
   m_ObjectHideFlags: 0
