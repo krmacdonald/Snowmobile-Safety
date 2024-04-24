@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /**
  * @author Kyle Macdonald
@@ -15,6 +16,10 @@ public class SnowmobileCrash : MonoBehaviour
     [SerializeField]
     private CrashPopup eventManager;
 
+    //Progress Bar dragged in, allows it to be accessed
+    [SerializeField]
+    private Image BarFill;
+
     //Handles collisions with solid objects like trees and steep hills
     void OnCollisionEnter(Collision other)
     {
@@ -23,6 +28,9 @@ public class SnowmobileCrash : MonoBehaviour
         {
             //Calls the callPopup method for the event manager to display what the player did wrong
             eventManager.callPopup("Crash");
+
+            //Resets Progress Bar
+            BarFill.fillAmount = 0f;
         }
 
         //checks if the object the player collided with is an AI Rider
@@ -41,6 +49,9 @@ public class SnowmobileCrash : MonoBehaviour
         {
             //calls popup with the parameter offtrack to let the user know they went off track
             eventManager.callPopup("offTrack");
+
+            //Resets Progress Bar
+            BarFill.fillAmount = 0f;
         }
     }
 
