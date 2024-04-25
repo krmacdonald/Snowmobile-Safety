@@ -33,12 +33,7 @@ public class SnowmobileCrash : MonoBehaviour
             BarFill.fillAmount = 0f;
         }
 
-        //checks if the object the player collided with is an AI Rider
-        if (other.gameObject.tag == "AI Rider")
-        {
-            //Calls the popup method for the event manager to display what the player did wrong
-            eventManager.callPopup("AI Rider Collision");
-        }
+        
     }
 
     //Handles checks on invisible obstacles like npc riders + off roading
@@ -52,6 +47,13 @@ public class SnowmobileCrash : MonoBehaviour
 
             //Resets Progress Bar
             BarFill.fillAmount = 0f;
+        }
+
+        //checks if the object the player collided with is an AI Rider
+        if (other.gameObject.tag == "AI Rider")
+        {
+            //Calls the popup method for the event manager to display what the player did wrong
+            eventManager.callPopup("AI Rider Collision");
         }
     }
 
