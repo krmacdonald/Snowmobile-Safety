@@ -63,6 +63,7 @@ public class TestSnowmobileMovement : MonoBehaviour
 
     //Vector3 for the starting position of the snowmobile, reset on R, testing purposes only.
     private Vector3 startingPos;
+    private Quaternion startingRot;
 
 
     void Start()
@@ -70,7 +71,7 @@ public class TestSnowmobileMovement : MonoBehaviour
         speedCap = 45f; //speed will be 1:1 in comparison to MPH
         snowmobileRB = gameObject.GetComponent<Rigidbody>(); //Gets the rb
         startingPos = transform.position;
-        //snowmobileRB.rotation = Quaternion.Euler(0, 0, 0);
+        startingRot = transform.rotation;
     }
 
     void Update()
@@ -79,7 +80,7 @@ public class TestSnowmobileMovement : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             transform.position = startingPos;
-            transform.rotation = Quaternion.Euler(0, 0, 0); //resets rotation
+            transform.rotation = startingRot; //resets rotation
             speed = 0; //resets mph speed
         }
 
