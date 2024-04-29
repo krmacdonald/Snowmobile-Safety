@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class LoopingFollow : MonoBehaviour
 {
     [SerializeField] private Transform[] waypoints;
+    //[SerializeField] int X, Y, Z;
     private int currentWaypointIndex = 0;
 
     private NavMeshAgent agent;
@@ -31,5 +32,6 @@ public class LoopingFollow : MonoBehaviour
         agent.SetDestination(waypoints[currentWaypointIndex].position);
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         transform.LookAt(waypoints[currentWaypointIndex].position);
+        //transform.Rotate(X, Y, Z);
     }
 }
