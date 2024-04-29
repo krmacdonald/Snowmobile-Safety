@@ -24,7 +24,7 @@ public class HandSignal : MonoBehaviour
     [SerializeField]
     private TMP_Text textbox;
     private float timeCounter = 99; //Variables tracks time passed
-    private string currentState; //Used in other scripts to detect if player is doing the correct hand signal
+    public string currentState; //Used in other scripts to detect if player is doing the correct hand signal
 
     void Update()
     {
