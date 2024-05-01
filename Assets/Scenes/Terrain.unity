@@ -1101,6 +1101,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6812283807339390093, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7542129778098972159, guid: caa5a55657e2c5f4a9e16949debfb328, type: 3}
       propertyPath: m_IsActive
       value: 1
