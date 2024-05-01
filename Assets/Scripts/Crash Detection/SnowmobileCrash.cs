@@ -24,6 +24,14 @@ public class SnowmobileCrash : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         //checks if the object the player collided with is something you can crash into
+        
+
+        
+    }
+
+    //Handles checks on invisible obstacles like npc riders + off roading
+    void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.tag == "Crashable")
         {
             //Calls the callPopup method for the event manager to display what the player did wrong
@@ -32,13 +40,6 @@ public class SnowmobileCrash : MonoBehaviour
             //Resets Progress Bar
             BarFill.fillAmount = 0f;
         }
-
-        
-    }
-
-    //Handles checks on invisible obstacles like npc riders + off roading
-    void OnTriggerEnter(Collider other)
-    {
         //Checks tag of the trigger to see if its the offroad trigger
         if (other.gameObject.tag == "Offroad Trigger")
         {
