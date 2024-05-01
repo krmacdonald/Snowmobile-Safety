@@ -18,9 +18,9 @@ public class ToClose : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       
 
-        if (other.CompareTag("Player"))
+
+        if (other.gameObject.tag == "Player")
         {
             Alert.SetActive(true);
         }
@@ -29,7 +29,7 @@ public class ToClose : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
             Alert.SetActive(false);
         }
