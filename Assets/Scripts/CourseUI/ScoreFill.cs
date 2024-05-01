@@ -8,27 +8,27 @@ public class ScoreFill : MonoBehaviour
 {
     public Image ScoreImage;
     public TMP_Text scoreText;
-    private float score = 100;
+    public float score = 55;
 
     // Start is called before the first frame update
     void Start()
     {
         //Score starts full
         ScoreImage.fillAmount = score/100;
-        scoreText.text = string.Concat("Score: ", score.ToString(), "+");
+        scoreText.text = string.Concat("Score: ", score.ToString(), "%");
     }
 
     public void decreaseScore(float amount)
     {
         score -= amount;
         ScoreImage.fillAmount = score / 100;
-        scoreText.text = string.Concat("Score: ", score.ToString(), "+");
+        scoreText.text = string.Concat("Score: ", score.ToString(), "%");
     }
 
     public void increaseScore(float amount)
     {
         score += amount;
         ScoreImage.fillAmount = score / 100;
-        scoreText.text = string.Concat("Score: ", score.ToString(), "+");
+        scoreText.text = string.Concat("Score: ", score.ToString(), "%");
     }
 }
