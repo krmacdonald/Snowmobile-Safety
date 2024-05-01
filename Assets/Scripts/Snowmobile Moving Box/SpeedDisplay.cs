@@ -52,7 +52,14 @@ public class SpeedDisplay : MonoBehaviour
 
         index2 = (int)(currentSpeed % 10);
         index1 = (int)((currentSpeed % 100 - index2) / 10);
-
+        if(index1 < 0)
+        {
+            index1 = 0;
+        }
+        if(index2 < 0)
+        {
+            index2 = 0;
+        }
         num1.sprite = numberSprites[index1];
         num2.sprite = numberSprites[index2];
     }
