@@ -5,20 +5,26 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Snowmobile Choice.unity
     guid: 82a521a8f1d109d458005cb191ed5c14
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Snowmobile Moving Box Testing.unity
     guid: 95ef19c133f82854f84667eea55f894a
   - enabled: 1
     path: Assets/Scenes/Clothing.unity
     guid: 3f4d2aa4ed8856a409f61645fa35fd9d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EnterTutorial.unity
     guid: 10f379d2ed9e0b641aaef6d3f5ac8fdf
   - enabled: 1
     path: Assets/Scenes/Terrain.unity
     guid: ee240f71107dc8f4b95d55c8018877f9
+<<<<<<< Updated upstream
+=======
+  - enabled: 0
+    path: Assets/Scenes/GameFinish.unity
+    guid: cb0b1c17473ad634fbf613f95dd7088d
+>>>>>>> Stashed changes
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
