@@ -21,8 +21,9 @@ public class ClothingText : MonoBehaviour
     public GameObject panel;
     void Start()
     {
+        textFile = Resources.Load<TextAsset>("clothing.txt");
         panel.SetActive(false);
-        StreamReader reader = new StreamReader("Assets/Text Data/Clothing.txt");
+        StreamReader reader = new StreamReader(Application.dataPath + "/StreamingAssets/clothing.txt");
         string temp = "asdf";
         for(int i = 0; i < 16; i++)
         {
